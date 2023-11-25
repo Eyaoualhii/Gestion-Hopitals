@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListPatients implements InterfacePatient{
@@ -8,6 +9,11 @@ public class ListPatients implements InterfacePatient{
 
     public ListPatients(){
      listP=new ArrayList<>();
+    }
+
+
+    public List<Patient> getListP() {
+        return listP;
     }
 
     public void ajouterPatient(Patient p) {
@@ -31,11 +37,12 @@ public class ListPatients implements InterfacePatient{
     }
     /* Avec l’api Stream */
     public void trierPatientsParNom() {
-    listP.stream().sorted((p1,  p2)->p1.getNom().compareTo(p2.getNom())).forEach(e-> System.out.println(e));
+    listP.stream().sorted(Comparator.comparing(Patient::getNom)).forEach(p-> System.out.println(p));
     }
     /* Avec l'api stream */
     public void PatientSansRedondance(){
        listP.stream().distinct().forEach(p-> System.out.println(p));
     }
+
 
 }

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Patient {
 
     private int cin;
@@ -55,12 +57,10 @@ public class Patient {
                 ", numSecuriteSociale=" + numSecuriteSociale +
                 '}';
     }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Patient patient)) return false;
-        return cin == patient.cin && numSecuriteSociale == patient.numSecuriteSociale;
+        if (!(o instanceof Patient p)) return false;
+        return this.cin != p.cin && this.numSecuriteSociale != p.numSecuriteSociale;
     }
 
 

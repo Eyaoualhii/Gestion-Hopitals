@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Medecin {
 
     private int cin;
@@ -31,16 +33,24 @@ public class Medecin {
     public int getNumOrdre() {
         return numOrdre;
     }
+
+
+    @Override
     public String toString() {
-        /*à completer*/
+        return "Medecin{" +
+                "cin=" + cin +
+                ", nom='" + nom + '\'' +
+                ", prenom='" + prenom + '\'' +
+                ", numOrdre=" + numOrdre +
+                '}';
     }
 
-    public boolean equals(Object obj) {
-        /*à completer*/
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Medecin medecin)) return false;
+        return cin == medecin.cin && numOrdre == medecin.numOrdre && Objects.equals(nom, medecin.nom) && Objects.equals(prenom, medecin.prenom);
     }
-
-    /*à completer*/
-    //indication : le HasdhSet n’accepte pas les doublons
 
 
 }
